@@ -5,6 +5,7 @@ import "./globals.css";
 // AWS Amplify
 import "@/lib/amplify/client-init";
 import "@/lib/amplify/server-init";
+import { QueryClientProvider } from "@/lib/react-query/query-client-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
   );
