@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "mandarino",
+  title: "mandarino next",
   description: "language learning app",
 };
 
