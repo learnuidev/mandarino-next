@@ -8,6 +8,7 @@ import "@/lib/amplify/server-init";
 import { QueryClientProvider } from "@/lib/react-query/query-client-provider";
 import { I18NextHtmlProvider } from "@/lib/i18n-next/i18n-next-html-provider";
 import { ThemeProvider } from "@/components/theme-providet";
+import { Authenticated } from "@/components/authenticated";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <QueryClientProvider>{children}</QueryClientProvider>
+          <QueryClientProvider>
+            <Authenticated>{children}</Authenticated>
+          </QueryClientProvider>
         </ThemeProvider>
       </body>
     </I18NextHtmlProvider>
