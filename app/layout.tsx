@@ -7,6 +7,7 @@ import "@/lib/amplify/client-init";
 import "@/lib/amplify/server-init";
 import { QueryClientProvider } from "@/lib/react-query/query-client-provider";
 import { I18NextHtmlProvider } from "@/lib/i18n-next/i18n-next-html-provider";
+import { ThemeProvider } from "@/components/theme-providet";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryClientProvider>{children}</QueryClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <QueryClientProvider>{children}</QueryClientProvider>
+        </ThemeProvider>
       </body>
     </I18NextHtmlProvider>
   );
