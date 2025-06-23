@@ -6,6 +6,7 @@ import "./globals.css";
 import "@/lib/amplify/client-init";
 import "@/lib/amplify/server-init";
 import { QueryClientProvider } from "@/lib/react-query/query-client-provider";
+import { I18NextHtmlProvider } from "@/lib/i18n-next/i18n-next-html-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <I18NextHtmlProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryClientProvider>{children}</QueryClientProvider>
       </body>
-    </html>
+    </I18NextHtmlProvider>
   );
 }
