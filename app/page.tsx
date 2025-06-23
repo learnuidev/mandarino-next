@@ -1,5 +1,4 @@
 import { Mandarino } from "@/components/icons/mandarino";
-import { appEnv } from "@/lib/app-env";
 import Link from "next/link";
 
 export default function Home() {
@@ -11,10 +10,10 @@ export default function Home() {
         </Link>
       </nav>
 
-      <main className="mt-8">
-        <code>
-          <pre>{JSON.stringify(appEnv, null, 4)}</pre>
-        </code>
+      <main>
+        <h1 className="text-center text-2xl mt-8 mb-4">Mandarino</h1>
+
+        <p className="text-center">Learning languages for real</p>
       </main>
     </div>
   );
