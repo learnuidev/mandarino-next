@@ -2,6 +2,16 @@ import { Auth } from "aws-amplify";
 
 import { useQuery } from "@tanstack/react-query";
 
+interface AmplifyCognitoUser {
+  attributes: {
+    email_verified: boolean;
+    email: string;
+  };
+  getSignInUserSession: () => {
+    refreshToken: { getToken: () => string };
+    idToken: { jwtToken: string };
+  };
+}
 export interface ICognitoUser {
   emailVerified: boolean;
   email: string;
@@ -9,13 +19,10 @@ export interface ICognitoUser {
   jwtToken: string;
 }
 
-// TODO: Fix any here
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function formatUser(user: any): ICognitoUser {
+function formatUser(user: AmplifyCognitoUser): ICognitoUser {
   const { refreshToken, idToken } = user.getSignInUserSession();
 
   const formattedUser = {
-    // ...user.attributes,
     emailVerified: user.attributes.email_verified,
     email: user.attributes.email,
     refreshToken: refreshToken.getToken(),
