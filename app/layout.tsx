@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// AWS Amplify
+import "@/lib/amplify/client-init";
+import "@/lib/amplify/server-init";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
